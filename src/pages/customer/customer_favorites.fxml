@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane xmlns:fx="http://www.w3.org/1999/XSL/Transform" stylesheets="@../../resources/css/base"
+            fx:controller="controllers.customer.CustomerFavoritesController" style="-fx-background-color: 'E0E0E0';">
+    <top>
+        <fx:include fx:id="customerMenu" source="../menu/customer_menu.fxml"/>
+    </top>
+    <center>
+
+    </center>
+</BorderPane>

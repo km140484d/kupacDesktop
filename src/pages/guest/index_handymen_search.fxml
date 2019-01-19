@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane xmlns:fx="http://www.w3.org/1999/XSL/Transform" fx:controller="controllers.guest.IndexSearchController"
+            stylesheets="@../../resources/css/base" style="-fx-background-color: 'E0E0E0';">
+    <top>
+        <VBox spacing="10" alignment="CENTER">
+            <fx:include fx:id="menu" source="../menu/main_menu.fxml"/>
+            <fx:include fx:id="indexSearchForm" source="../search.fxml"/>
+        </VBox>
+    </top>
+    <center>
+        <ScrollPane fx:id="indexSearchScroll" style="-fx-padding:10;">
+            <VBox fx:id="indexSearchResults" maxWidth="760" alignment="center"/>
+        </ScrollPane>
+    </center>
+    <right>
+        <VBox spacing="20" alignment="CENTER" style="-fx-padding: 50;">
+            <Label text="Majstorija" styleClass="title" style="-fx-text-fill: #191970;"/>
+            <Label text="Prijavi se i uživaj u najboljoj usluzi majstora u gradu!" wrapText="true" maxWidth="200"
+                styleClass="label_field" style="-fx-text-fill: #4682B4;" alignment="CENTER"/>
+        </VBox>
+    </right>
+</BorderPane>

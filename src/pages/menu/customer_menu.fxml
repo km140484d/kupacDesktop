@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.menu.CustomerMenuController"
+      stylesheets="@../../resources/css/menu" styleClass="menu_background">
+    <GridPane  hgap="10" vgap="10" styleClass="menu_item_background" >
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="30.0" prefHeight="30" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <Button fx:id="custMenuSearch" GridPane.columnIndex="0" GridPane.rowIndex="0"
+                text="Pretraga majstora"  onMouseClicked="#switchToSearch"
+                styleClass="menu_item" prefWidth="Infinity" textAlignment="CENTER" alignment="CENTER"/>
+        <Button fx:id="custMenuRequests" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                text="Pregled zahteva" wrapText="true" onMouseClicked="#switchToRequests"
+                styleClass="menu_item" prefWidth="Infinity" textAlignment="CENTER" alignment="CENTER" />
+        <Button fx:id="custMenuFavorites" GridPane.columnIndex="2" GridPane.rowIndex="0"
+                text="Odabrani majstori" wrapText="true" onMouseClicked="#switchToFavorites"
+                styleClass="menu_item" prefWidth="Infinity" textAlignment="CENTER" alignment="CENTER" />
+        <Button fx:id="custMenuUpdate" GridPane.columnIndex="3" GridPane.rowIndex="0"
+                text="Odrzavanje naloga" wrapText="true" onMouseClicked="#switchToUpdate"
+                styleClass="menu_item" prefWidth="Infinity" textAlignment="CENTER" alignment="CENTER" />
+        <Button fx:id="custMenuLogout" GridPane.columnIndex="4" GridPane.rowIndex="0"
+                text="Odjava" wrapText="true" onMouseClicked="#logout"
+                styleClass="menu_item" prefWidth="Infinity" textAlignment="CENTER" alignment="CENTER" />
+    </GridPane>
+</VBox>
+

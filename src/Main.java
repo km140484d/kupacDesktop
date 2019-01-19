@@ -1,9 +1,9 @@
-import controllers.*;
 import controllers.guest.LoginController;
+import controllers.menu.MainMenuController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
-import javafx.scene.paint.Color;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import resources.Constants;
 
@@ -12,7 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         LoginController.setPrimaryStage(primaryStage);
-        MenuController.setPrimaryStage(primaryStage);
+        MainMenuController.setPrimaryStage(primaryStage);
         Parent root = FXMLLoader.load(getClass().getResource("pages/guest/login.fxml"));
         primaryStage.setTitle("Kupac");
         Scene primaryScene = new Scene(root, Constants.SCENE_WIDTH, Constants.SCENE_HEIGHT);
@@ -20,7 +20,7 @@ public class Main extends Application {
         primaryScene.getStylesheets().add(getClass().getResource("resources/css/base").toExternalForm());
         primaryStage.show();
         //primaryStage.setFullScreen(true);
-        MenuController.setPrimaryScene(primaryScene);
+        MainMenuController.setPrimaryScene(primaryScene);
         LoginController.setPrimaryScene(primaryScene);
     }
 

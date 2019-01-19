@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
-
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://www.w3.org/1999/XSL/Transform" stylesheets="@../../resources/css/base"
             style="-fx-background-color: 'E0E0E0';" fx:controller="controllers.guest.RegisterController">
     <top>
-        <fx:include source="../menu.fxml"/>
+        <fx:include fx:id="menu" source="../menu/main_menu.fxml"/>
     </top>
     <center>
         <VBox spacing="20" alignment="CENTER">
@@ -16,11 +16,11 @@
                 <VBox spacing="15" styleClass="panel" GridPane.columnIndex="0" GridPane.rowIndex="0">
                     <Label text="Osnovno" styleClass="subtitle" style="-fx-font-size: 14;"/>
                     <fx:define>
-                        <ToggleGroup fx:id="korisnikRadioGroup"></ToggleGroup>
+                        <ToggleGroup fx:id="korisnikRadioGroup"/>
                     </fx:define>
                     <HBox spacing="10">
-                        <RadioButton text="Kupac" toggleGroup="$korisnikRadioGroup"></RadioButton>
-                        <RadioButton text="Majstor" selected="true" toggleGroup="$korisnikRadioGroup"></RadioButton>
+                        <RadioButton text="Kupac" toggleGroup="$korisnikRadioGroup"/>
+                        <RadioButton text="Majstor" selected="true" toggleGroup="$korisnikRadioGroup"/>
                     </HBox>
                     <HBox spacing="15">
                         <GridPane  hgap="5" vgap="10" alignment="CENTER">
@@ -36,9 +36,7 @@
                         <VBox spacing="5">
                             <Label text="Slika" styleClass="label_field"/>
                             <ImageView fx:id="userImageView" fitHeight="100.0" fitWidth="100.0">
-                                <image>
-                                    <Image url="@../../resources/images/person_holder.gif"/>
-                                </image>
+                                <Image url="@../../resources/images/person_holder.gif"/>
                             </ImageView>
                         </VBox>
                     </HBox>
@@ -49,7 +47,7 @@
                     <GridPane  hgap="5" vgap="10" alignment="CENTER">
                         <Label text="Broj:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
                         <Label text="Validnost:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                        <Label text="Verifikacioni kod:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <Label text="Verifikacioni kod:" wrapText="true" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                         <TextField fx:id="regCardNumber" maxWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
                         <TextField fx:id="regCardValid" maxWidth="50" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
                         <TextField fx:id="regCardCode" maxWidth="50" GridPane.columnIndex="1" GridPane.rowIndex="2"/>

@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
-
-<?import javafx.scene.image.*?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import org.controlsfx.control.Rating?>
-
 <HBox xmlns:fx="http://javafx.com/fxml" spacing="20" styleClass="panel" style="-fx-padding: 10;">
     <ImageView fx:id="userImageView" fitHeight="100.0" fitWidth="100.0">
-        <image>
-            <Image url="@../../resources/images/person_holder.gif"/>
-        </image>
+        <Image url="@../../resources/images/person_holder.gif"/>
     </ImageView>
     <VBox spacing="20">
         <Label fx:id="indexSearchResultHandyman" text="Ime i prezime majstora"
@@ -18,6 +16,6 @@
         <Label fx:id="indexSearchResultJob" text="Posao" styleClass="label_field"/>
     </VBox>
     <VBox alignment="CENTER">
-        <Rating fx:id="indexSearchResultRating" disable="true"/>
+        <Rating fx:id="indexSearchResultRating" disable="true" scaleX="0.75" scaleY="0.75"/>
     </VBox>
 </HBox>
