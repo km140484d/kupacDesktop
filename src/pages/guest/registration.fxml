@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<BorderPane xmlns:fx="http://www.w3.org/1999/XSL/Transform" stylesheets="@../../resources/css/base"
+            style="-fx-background-color: 'E0E0E0';" fx:controller="controllers.guest.RegisterController">
+    <top>
+        <fx:include source="../menu.fxml"/>
+    </top>
+    <center>
+        <VBox spacing="20" alignment="CENTER">
+            <Label text="Registrovanje novog korisnika" styleClass="subtitle"/>
+            <GridPane  hgap="15" vgap="20" alignment="CENTER">
+                <VBox spacing="15" styleClass="panel" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <Label text="Osnovno" styleClass="subtitle" style="-fx-font-size: 14;"/>
+                    <fx:define>
+                        <ToggleGroup fx:id="korisnikRadioGroup"></ToggleGroup>
+                    </fx:define>
+                    <HBox spacing="10">
+                        <RadioButton text="Kupac" toggleGroup="$korisnikRadioGroup"></RadioButton>
+                        <RadioButton text="Majstor" selected="true" toggleGroup="$korisnikRadioGroup"></RadioButton>
+                    </HBox>
+                    <HBox spacing="15">
+                        <GridPane  hgap="5" vgap="10" alignment="CENTER">
+                            <Label text="Ime:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                            <Label text="Prezime:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                            <Label text="Telefon:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                            <Label text="e-Pošta:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                            <TextField fx:id="regName" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                            <TextField fx:id="regSurname" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                            <TextField fx:id="regPhone" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                            <TextField fx:id="regEmail" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        </GridPane>
+                        <VBox spacing="5">
+                            <Label text="Slika" styleClass="label_field"/>
+                            <ImageView fx:id="userImageView" fitHeight="100.0" fitWidth="100.0">
+                                <image>
+                                    <Image url="@../../resources/images/person_holder.gif"/>
+                                </image>
+                            </ImageView>
+                        </VBox>
+                    </HBox>
+                </VBox>
+                <VBox spacing="15" styleClass="panel" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <CheckBox fx:id="regPayCheck" text="Platna kartica" textAlignment="RIGHT"
+                              style="-fx-font-size: 14;" styleClass="subtitle"/>
+                    <GridPane  hgap="5" vgap="10" alignment="CENTER">
+                        <Label text="Broj:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <Label text="Validnost:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <Label text="Verifikacioni kod:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <TextField fx:id="regCardNumber" maxWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <TextField fx:id="regCardValid" maxWidth="50" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <TextField fx:id="regCardCode" maxWidth="50" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    </GridPane>
+                </VBox>
+                <VBox spacing="15" styleClass="panel" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <Label text="Nalog" styleClass="subtitle" style="-fx-font-size: 14;"/>
+                    <GridPane  hgap="5" vgap="10" alignment="CENTER">
+                        <Label text="Korisnik:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <Label text="Lozinka:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <Label text="Potvrda:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <TextField fx:id="regUsername" maxWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                         style="-fx-background-image: url('resources/images/user20.png');" styleClass="text_field_image"/>
+                        <TextField fx:id="regPassword" maxWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <TextField fx:id="regPasswordRep" maxWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    </GridPane>
+                </VBox>
+                <VBox spacing="15" styleClass="panel" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <Label text="Komentar" styleClass="subtitle" style="-fx-font-size: 14;"/>
+                    <TextArea fx:id="regComment" maxWidth="200" maxHeight="80"/>
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button text="Sacuvaj" styleClass="button_base" style="-fx-graphic: url('@../../resources/images/save24.png')"/>
+                        <Button text="Odustani" styleClass="button_base" style="-fx-graphic: url('@../../resources/images/cancel24.png')"/>
+                    </HBox>
+                </VBox>
+            </GridPane>
+        </VBox>
+    </center>
+</BorderPane>
