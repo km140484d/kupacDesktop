@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.Rating?>
+<HBox xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.customer.HandymanResultController" spacing="50"
+      styleClass="panel" style="-fx-padding: 10" maxWidth="Infinity">
+    <ImageView fx:id="userImageView" fitHeight="100.0" fitWidth="100.0">
+        <Image url="@../../resources/images/person_holder.gif"/>
+    </ImageView>
+    <VBox spacing="20">
+        <Label fx:id="customerSearchResultHandyman" text="Ime i prezime majstora"
+               styleClass="label_field" style="-fx-font-weight: bold;"/>
+        <Label fx:id="customerSearchResultJob" text="Posao" styleClass="label_field"/>
+    </VBox>
+    <VBox alignment="CENTER">
+        <Rating fx:id="customerSearchResultRating" disable="true" scaleX="0.75" scaleY="0.75"/>
+    </VBox>
+    <VBox spacing="10" style="-fx-padding: 10;">
+        <Button fx:id="customerHandymanProfile" text="Pregled profila" onAction="#viewHandymanProfile"
+               styleClass="button_result" style="-fx-graphic: url('@../../resources/images/glasses24.png')"/>
+        <Button fx:id="customerRequestMail" text="Slanje zahteva"
+                styleClass="button_result" style="-fx-graphic: url('@../../resources/images/mail24.png')"/>
+    </VBox>
+</HBox>

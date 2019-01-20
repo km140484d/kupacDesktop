@@ -16,11 +16,11 @@
                 <VBox spacing="15" styleClass="panel" GridPane.columnIndex="0" GridPane.rowIndex="0">
                     <Label text="Osnovno" styleClass="subtitle" style="-fx-font-size: 14;"/>
                     <fx:define>
-                        <ToggleGroup fx:id="korisnikRadioGroup"/>
+                        <ToggleGroup fx:id="userRadioGroup"/>
                     </fx:define>
                     <HBox spacing="10">
-                        <RadioButton text="Kupac" toggleGroup="$korisnikRadioGroup"/>
-                        <RadioButton text="Majstor" selected="true" toggleGroup="$korisnikRadioGroup"/>
+                        <RadioButton text="Kupac" selected="true" toggleGroup="$userRadioGroup"/>
+                        <RadioButton text="Majstor" toggleGroup="$userRadioGroup"/>
                     </HBox>
                     <HBox spacing="15">
                         <GridPane  hgap="5" vgap="10" alignment="CENTER">

@@ -7,7 +7,7 @@
 <BorderPane xmlns:fx="http://www.w3.org/1999/XSL/Transform" fx:controller="controllers.guest.IndexSearchController"
             stylesheets="@../../resources/css/base" style="-fx-background-color: 'E0E0E0';">
     <top>
-        <VBox spacing="10" alignment="CENTER">
+        <VBox alignment="CENTER">
             <fx:include fx:id="menu" source="../menu/main_menu.fxml"/>
             <fx:include fx:id="indexSearchForm" source="../search.fxml"/>
         </VBox>

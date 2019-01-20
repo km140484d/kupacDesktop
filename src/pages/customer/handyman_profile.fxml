@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://www.w3.org/1999/XSL/Transform" stylesheets="@../../resources/css/base"
+            fx:controller="controllers.customer.HandymanProfileController" style="-fx-background-color: 'E0E0E0';">
+    <top>
+        <fx:include fx:id="customerMenu" source="../menu/customer_menu.fxml"/>
+    </top>
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <Label text="Profil majstora" styleClass="subtitle"/>
+            <GridPane  hgap="20" vgap="20" alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="37.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="57.0"/>
+                </columnConstraints>
+                <VBox spacing="20" GridPane.columnIndex="0" GridPane.rowIndex="0"
+                      styleClass="panel" style="-fx-padding: 20, 40, 20, 40;" alignment="CENTER">
+                    <Label fx:id="handymanName" text="Ime i prezime" styleClass="text_field"
+                           style="-fx-font-size: 14; -fx-font-weight: bold;"/>
+                    <HBox spacing="20">
+                        <VBox>
+                            <ImageView fx:id="handymanImageView" fitHeight="100.0" fitWidth="100.0">
+                                <Image url="@../../resources/images/person_holder.gif"/>
+                            </ImageView>
+                        </VBox>
+                        <VBox spacing="5">
+                            <Label text="Kontakt" styleClass="subtitle" style="-fx-font-size: 14;"/>
+                            <Label fx:id="handymanEmail" text="email@gmail.com" styleClass="label_field"/>
+                            <Label fx:id="handymanPhone" text="061/234-56789" styleClass="label_field"/>
+                        </VBox>
+                    </HBox>
+                    <Button fx:id="customerRequestMail" onAction="#createRequest" text="Slanje zahteva"
+                                    styleClass="button_result" style="-fx-graphic: url('@../../resources/images/mail24.png')"/>
+                </VBox>
+                <VBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                    styleClass="panel" style="-fx-padding: 20;" alignment="CENTER_LEFT">
+                    <VBox spacing="3">
+                        <Label text="Posao" styleClass="subtitle" style="-fx-font-size: 14;"/>
+                        <TableView fx:id="handymanTableJobs" prefHeight="100.0" prefWidth="380.0" translateX="30">
+                            <columns>
+                                <TableColumn fx:id="handymanJobColumn" text="Delatnost" prefWidth="150"/>
+                                <TableColumn fx:id="handymanPriceColumn" text="Cena(RSD)" prefWidth="80.0"/>
+                                <TableColumn fx:id="handymanRatingColumn" text="Ocena" prefWidth="150"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                    <VBox spacing="3">
+                        <Label text="Specijalne veštine" styleClass="subtitle" style="-fx-font-size: 14;"/>
+                        <Label fx:id="handymanSpecialSkills" text="Spisak specijalnih veština majstora" styleClass="label_field"
+                            translateX="30"/>
+                    </VBox>
+                </VBox>
+                <VBox spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.columnSpan="2"
+                      styleClass="panel" style="-fx-padding: 20;" alignment="CENTER">
+                    <TableView fx:id="handymanScheduleTable" prefHeight="500.0" prefWidth="720.0">
+                        <columns>
+                            <TableColumn fx:id="scheduleTimeColumn" text="Vreme" prefWidth="90"/>
+                            <TableColumn fx:id="scheduleMondayColumn" text="Ponedeljak" prefWidth="90.0"/>
+                            <TableColumn fx:id="scheduleTuesdayColumn" text="Utorak" prefWidth="90"/>
+                            <TableColumn fx:id="scheduleWednesdayColumn" text="Sreda" prefWidth="90"/>
+                            <TableColumn fx:id="scheduleThursdayColumn" text="Četvrtak" prefWidth="90.0"/>
+                            <TableColumn fx:id="scheduleFridayColumn" text="Petak" prefWidth="90"/>
+                            <TableColumn fx:id="scheduleSaturdayColumn" text="Subota" prefWidth="90"/>
+                            <TableColumn fx:id="scheduleSundayColumn" text="Nedelja" prefWidth="90"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </GridPane>
+        </VBox>
+    </center>
+    <bottom>
+
+    </bottom>
+</BorderPane>

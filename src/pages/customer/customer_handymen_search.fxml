@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 <BorderPane xmlns:fx="http://www.w3.org/1999/XSL/Transform" stylesheets="@../../resources/css/base"
             fx:controller="controllers.customer.CustomerSearchController" style="-fx-background-color: 'E0E0E0';">
     <top>
-        <fx:include fx:id="customerMenu" source="../menu/customer_menu.fxml"/>
+        <VBox alignment="CENTER">
+            <fx:include fx:id="customerMenu" source="../menu/customer_menu.fxml"/>
+            <fx:include fx:id="customerSearchForm" source="../search.fxml"/>
+        </VBox>
     </top>
     <center>
-
+        <ScrollPane fx:id="customerSearchScroll" style="-fx-padding:20;">
+            <VBox fx:id="customerSearchResults" alignment="center"/>
+        </ScrollPane>
     </center>
 </BorderPane>
