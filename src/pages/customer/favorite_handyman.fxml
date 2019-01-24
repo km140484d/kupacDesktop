@@ -13,12 +13,12 @@
         <VBox alignment="CENTER">
             <Label fx:id="handymanName" text="Mile Miletić"
                    style="-fx-text-fill: #990000; -fx-font-size: 14; -fx-font-weight: bold; -fx-padding: 5;"/>
-            <HBox spacing="3">
-                <Button fx:id="facebook"
+            <HBox spacing="3" alignment="CENTER">
+                <Button fx:id="facebook" onAction="#shareFacebook"
                         style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/facebook30.png');" />
-                <Button fx:id="instagram"
+                <Button fx:id="instagram" onAction="#shareInstagram"
                         style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/instagram30.png');"/>
-                <Button fx:id="twitter"
+                <Button fx:id="twitter" onAction="#shareTwitter"
                         style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/twitter30.png');"/>
             </HBox>
         </VBox>

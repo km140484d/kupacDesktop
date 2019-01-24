@@ -2,6 +2,7 @@ package controllers.customer;
 
 import components.*;
 import controllers.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
@@ -37,5 +38,17 @@ public class RequestController extends Controller implements Initializable {
         rateRequestPanel.managedProperty().bind(rateRequestPanel.visibleProperty());
         requestCanceledDate.managedProperty().bind(requestCanceledDate.visibleProperty());
         //set the visibility of requestCanceledDate to true when the request is CANCELED
+    }
+
+    public void shareFacebook(ActionEvent actionEvent) {
+
+    }
+
+    public void shareInstagram(ActionEvent actionEvent) {
+
+    }
+
+    public void shareTwitter(ActionEvent actionEvent) {
+
     }
 }
