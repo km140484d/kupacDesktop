@@ -23,7 +23,7 @@
     <VBox spacing="10" style="-fx-padding: 10;">
         <Button fx:id="customerHandymanProfile" text="Pregled profila" onAction="#viewHandymanProfile"
                styleClass="button_result" style="-fx-graphic: url('@../../resources/images/glasses24.png')"/>
-        <Button fx:id="customerRequestMail" text="Slanje zahteva"
+        <Button fx:id="customerRequestMail" text="Slanje zahteva" onAction="#sendHandymanRequest"
                 styleClass="button_result" style="-fx-graphic: url('@../../resources/images/mail24.png')"/>
     </VBox>
 </HBox>

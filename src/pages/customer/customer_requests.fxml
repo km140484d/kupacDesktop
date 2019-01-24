@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://www.w3.org/1999/XSL/Transform" stylesheets="@../../resources/css/base"
             fx:controller="controllers.customer.CustomerRequestsController" style="-fx-background-color: 'E0E0E0';">
     <top>
         <fx:include fx:id="customerMenu" source="../menu/customer_menu.fxml"/>
     </top>
     <center>
-
+        <ScrollPane fx:id="requestsScroll" style="-fx-padding:20;">
+            <VBox fx:id="requestResults" alignment="center" spacing="5"/>
+        </ScrollPane>
     </center>
 </BorderPane>

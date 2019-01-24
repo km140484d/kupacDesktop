@@ -13,7 +13,11 @@ public class HandymanResultController extends Controller {
 
     public void viewHandymanProfile(ActionEvent actionEvent) throws IOException {
         BorderPane root = FXMLLoader.load(getClass().getResource(customerPageURL + "handyman_profile.fxml"));
-//        stage.setTitle("Odabrani majstori");
+        scene.setRoot(root);
+    }
+
+    public void sendHandymanRequest(ActionEvent actionEvent) throws IOException {
+        BorderPane root = FXMLLoader.load(getClass().getResource(customerPageURL + "handyman_request_mail.fxml"));
         scene.setRoot(root);
     }
 }

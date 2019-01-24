@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<HBox xmlns:fx="http://www.w3.org/1999/XSL/Transform" stylesheets="@../../resources/css/base"
+      fx:controller="controllers.customer.RequestController" spacing="10" styleClass="panel" maxWidth="Infinity"
+      onMouseClicked="#requestAction" alignment="CENTER">
+    <VBox spacing="8">
+        <ImageView fx:id="handymanImageView" fitHeight="100.0" fitWidth="100.0">
+            <Image url="@../../resources/images/person_holder.gif"/>
+        </ImageView>
+        <VBox alignment="CENTER">
+            <Label fx:id="handymanName" text="Mile Miletić"
+                   style="-fx-text-fill: #990000; -fx-font-size: 14; -fx-font-weight: bold; -fx-padding: 5;"/>
+            <HBox spacing="3">
+                <Button fx:id="facebook"
+                        style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/facebook30.png');" />
+                <Button fx:id="instagram"
+                        style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/instagram30.png');"/>
+                <Button fx:id="twitter"
+                        style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/twitter30.png');"/>
+            </HBox>
+        </VBox>
+    </VBox>
+
+</HBox>

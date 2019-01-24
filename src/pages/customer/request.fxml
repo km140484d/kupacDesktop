@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.*?>
+<?import components.*?>
+<?import org.controlsfx.control.Rating?>
+<VBox xmlns:fx="http://www.w3.org/1999/XSL/Transform" stylesheets="@../../resources/css/base"
+      fx:controller="controllers.customer.RequestController" spacing="10" styleClass="panel" maxWidth="Infinity"
+      onMouseClicked="#requestAction" alignment="CENTER">
+    <HBox spacing="20">
+        <Label fx:id="requestSent" text="24/01/2019 11:54:55" styleClass="subtitle" style="-fx-font-size: 14;"/>
+    </HBox>
+    <GridPane  hgap="10" alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" percentWidth="25.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" percentWidth="25.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" percentWidth="25.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" percentWidth="25.0"/>
+        </columnConstraints>
+        <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <Label fx:id="handymanJob" text="Vodoinstalater" style="-fx-font-weight: bold;" alignment="CENTER"/>
+            <Label fx:id="handymanName" text="Mile Miletić" alignment="CENTER"/>
+        </VBox>
+        <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <Label text="Adresa" style="-fx-font-weight: bold;" alignment="CENTER"/>
+            <Label fx:id="handymanAddress" text="Aleksinačkih rudara 11, Novi Beograd" maxWidth="200" wrapText="true" alignment="CENTER"/>
+        </VBox>
+        <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <Label text="Vreme" style="-fx-font-weight: bold;" alignment="CENTER"/>
+            <Label fx:id="requestDate" text="26/01/2019 21:54:55" maxWidth="200" wrapText="true" alignment="CENTER"/>
+        </VBox>
+        <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="0">
+            <Label text="Stanje" style="-fx-font-weight: bold;" alignment="CENTER"/>
+            <Label fx:id="requestState" text="REALIZOVAN" alignment="CENTER_RIGHT"
+                   style="-fx-font-style: italic; -fx-text-fill: #191970; -fx-font-size: 14; -fx-font-weight: bold;"/>
+            <Label fx:id="requestCanceledDate" text="07/12/18 10:55:01"
+                   style="-fx-font-weight: bold; -fx-text-fill: #3333FF;" alignment="CENTER" visible="false"/>
+        </VBox>
+    </GridPane>
+    <BorderTitlePanel fx:id="cancelRequestPanel" title="" alignment="CENTER" style="-fx-padding: 10;" visible="false">
+        <Button fx:id="requestCanceledButton" text="Otkaži"
+                styleClass="button_base" style="-fx-graphic: url('@../../resources/images/cancel24.png')"/>
+    </BorderTitlePanel>
+    <BorderTitlePanel fx:id="rateRequestPanel" title="" alignment="CENTER" style="-fx-padding: 10;" visible="false">
+        <HBox spacing="10">
+            <VBox spacing="5">
+                <Button fx:id="requestRatedButton" text="Oceni"
+                        styleClass="button_base" style="-fx-graphic: url('@../../resources/images/rate24.png')"/>
+                <Rating fx:id="requestRated" scaleX="0.75" scaleY="0.75"/>
+            </VBox>
+            <VBox spacing="5">
+                <Label text="Komentar" styleClass="subtitle"
+                       style="-fx-text-fill: #3333FF; -fx-font-size: 14; -fx-font-weight: bold; -fx-padding: 5;"/>
+                <TextArea fx:id="requestComment" maxWidth="250" maxHeight="75"/>
+            </VBox>
+        </HBox>
+    </BorderTitlePanel>
+</VBox>

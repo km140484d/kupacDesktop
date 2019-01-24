@@ -32,7 +32,7 @@
                             <Rating fx:id="requestUrgency" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
                         </GridPane>
                     </VBox>
-                    <VBox spacing="5">
+                    <VBox spacing="10">
                         <Label text="Plaćanje" styleClass="subtitle" style="-fx-font-size: 14;"/>
                         <fx:define>
                             <ToggleGroup fx:id="paymentRadioGroup"/>
@@ -56,8 +56,10 @@
                                            style="-fx-background-image: url('resources/images/credit20.png');" styleClass="text_field_image"/>
                                 <TextField fx:id="requestCardValidity" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
                                 <TextField fx:id="requestCardCode" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                                <Button fx:id="requestCardSave" text="Sacuvaj" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.columnSpan="2" GridPane.rowSpan="2"
-                                        styleClass="button_base" style="-fx-graphic: url('@../../resources/images/save24.png')" alignment="CENTER"/>
+                                <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.columnSpan="2" GridPane.rowSpan="2">
+                                    <Button fx:id="requestCardSave" text="Sacuvaj" styleClass="button_base"
+                                            style="-fx-graphic: url('@../../resources/images/save24.png')" alignment="CENTER"/>
+                                </VBox>
                             </GridPane>
                         </BorderTitlePanel>
                     </VBox>
@@ -71,8 +73,8 @@
                         <TextField fx:id="requestAddressCounty" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
                         <TextField fx:id="requestAddressStreet" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
                     </GridPane>
-                    <ImageView fx:id="handymanImageView" fitHeight="200.0" fitWidth="200.0">
-                        <Image url="@../../resources/images/map.png"/>
+                    <ImageView fx:id="handymanImageView" fitHeight="200.0" fitWidth="350.0">
+                        <Image url="@../../resources/images/map.jpg"/>
                     </ImageView>
                     <HBox spacing="10">
                         <Button text="Pošalji" styleClass="button_base" style="-fx-graphic: url('@../../resources/images/send24.png')"/>
