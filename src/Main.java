@@ -19,6 +19,8 @@ public class Main extends Application {
         primaryStage.setScene(primaryScene);
         primaryScene.getStylesheets().add(getClass().getResource("resources/css/base").toExternalForm());
         primaryStage.show();
+        primaryStage.setMinHeight(Constants.SCENE_HEIGHT);
+        primaryStage.setMinWidth(Constants.SCENE_WIDTH);
         //primaryStage.setFullScreen(true);
         MainMenuController.setPrimaryScene(primaryScene);
         LoginController.setPrimaryScene(primaryScene);

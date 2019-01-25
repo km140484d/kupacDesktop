@@ -40,15 +40,4 @@ public class RequestController extends Controller implements Initializable {
         //set the visibility of requestCanceledDate to true when the request is CANCELED
     }
 
-    public void shareFacebook(ActionEvent actionEvent) {
-
-    }
-
-    public void shareInstagram(ActionEvent actionEvent) {
-
-    }
-
-    public void shareTwitter(ActionEvent actionEvent) {
-
-    }
 }

@@ -30,6 +30,13 @@
     -fx-font-weight: normal;
 }
 
+.label_status{
+    -fx-font-style: italic;
+    -fx-text-fill: #191970;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+}
+
 .button_base {
     -fx-background-color: #191970;
     -fx-pref-width: 150px;

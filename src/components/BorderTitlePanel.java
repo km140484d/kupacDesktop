@@ -16,7 +16,6 @@ public class BorderTitlePanel extends VBox {
 
     public Node getContent() { return content; }
 
-
     public void setTitle(String title) {
         titleLabel.setText(" " + title + " ");
     }

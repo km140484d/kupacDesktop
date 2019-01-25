@@ -3,10 +3,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
+<?import components.BorderTitlePanel?>
 <HBox xmlns:fx="http://www.w3.org/1999/XSL/Transform" stylesheets="@../../resources/css/base"
-      fx:controller="controllers.customer.RequestController" spacing="10" styleClass="panel" maxWidth="Infinity"
+      fx:controller="controllers.customer.FavoriteHandymanController" spacing="10" styleClass="panel" maxWidth="Infinity"
       onMouseClicked="#requestAction" alignment="CENTER">
-    <VBox spacing="8">
+    <VBox spacing="4" alignment="CENTER">
         <ImageView fx:id="handymanImageView" fitHeight="100.0" fitWidth="100.0">
             <Image url="@../../resources/images/person_holder.gif"/>
         </ImageView>
@@ -15,13 +16,34 @@
                    style="-fx-text-fill: #990000; -fx-font-size: 14; -fx-font-weight: bold; -fx-padding: 5;"/>
             <HBox spacing="3" alignment="CENTER">
                 <Button fx:id="facebook" onAction="#shareFacebook"
-                        style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/facebook30.png');" />
+                        style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/facebook24.png');" />
                 <Button fx:id="instagram" onAction="#shareInstagram"
-                        style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/instagram30.png');"/>
+                        style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/instagram24.png');"/>
                 <Button fx:id="twitter" onAction="#shareTwitter"
-                        style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/twitter30.png');"/>
+                        style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/twitter24.png');"/>
             </HBox>
         </VBox>
     </VBox>
-
+    <BorderTitlePanel title="Statistika" style="-fx-font-style: italic; -fx-text-fill: #3333FF;">
+        <GridPane hgap="10" vgap="2" style="-fx-padding: 2;">
+            <Label text="Realizovani zahtevi" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Label text="Odbijeni zahtevi" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <Label fx:id="numRequestsRealized" text="4" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                   styleClass="label_field" style="-fx-font-weight: bold;"/>
+            <Label fx:id="numRequestsRDenied" text="1" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                   styleClass="label_field" style="-fx-font-weight: bold;"/>
+        </GridPane>
+        <Label text="Evidencija zahteva" styleClass="subtitle" style="-fx-font-size: 14;"/>
+        <GridPane hgap="10" vgap="2" style="-fx-padding: 2;">
+            <Label fx:id="firstDate" text="22/12/18 8:00h" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Label fx:id="secondDate" text="20/12/18 12:00h" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <Label fx:id="thirdDate" text="07/10/18 10:00h" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <Label fx:id="firstStatus" text="POSLAT" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                   styleClass="label_status"/>
+            <Label fx:id="secondStatus" text="REALIZOVAN" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                   styleClass="label_status"/>
+            <Label fx:id="thirdStatus" text="POSLAT" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                   styleClass="label_status"/>
+        </GridPane>
+    </BorderTitlePanel>
 </HBox>
