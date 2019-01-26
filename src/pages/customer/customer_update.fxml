@@ -1,12 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://www.w3.org/1999/XSL/Transform" stylesheets="@../../resources/css/base"
             fx:controller="controllers.customer.CustomerUpdateController" style="-fx-background-color: 'E0E0E0';">
     <top>
         <fx:include fx:id="customerMenu" source="../menu/customer_menu.fxml"/>
     </top>
     <center>
-
+        <VBox spacing="20" alignment="CENTER">
+            <Label text="Podaci kupca" styleClass="subtitle"/>
+            <GridPane  hgap="15" vgap="20" alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" percentWidth="45.0" prefWidth="350"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" percentWidth="45.0" prefWidth="350"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints vgrow="SOMETIMES" minHeight="210.0" percentHeight="45.0"/>
+                    <RowConstraints vgrow="SOMETIMES" minHeight="210.0" percentHeight="45.0"/>
+                </rowConstraints>
+                <VBox spacing="15" styleClass="panel" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <Label text="Osnovno" styleClass="subtitle" style="-fx-font-size: 14;"/>
+                    <!--<fx:define>-->
+                        <!--<ToggleGroup fx:id="userRadioGroup"/>-->
+                    <!--</fx:define>-->
+                    <!--<HBox spacing="10">-->
+                        <!--<RadioButton text="Kupac" selected="true" toggleGroup="$userRadioGroup"/>-->
+                        <!--<RadioButton text="Majstor" toggleGroup="$userRadioGroup"/>-->
+                    <!--</HBox>-->
+                    <HBox spacing="15">
+                        <GridPane  hgap="5" vgap="10" alignment="CENTER">
+                            <Label text="Ime:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                            <Label text="Prezime:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                            <Label text="Telefon:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                            <Label text="e-Pošta:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                            <TextField fx:id="editName" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                            <TextField fx:id="editSurname" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                            <TextField fx:id="editPhone" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                            <TextField fx:id="editEmail" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        </GridPane>
+                        <VBox spacing="5">
+                            <Label text="Slika" styleClass="label_field"/>
+                            <ImageView fx:id="userImageView" fitHeight="100.0" fitWidth="100.0">
+                                <Image url="@../../resources/images/person_holder.gif"/>
+                            </ImageView>
+                        </VBox>
+                    </HBox>
+                </VBox>
+                <VBox spacing="15" styleClass="panel" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <CheckBox fx:id="editPayCheck" text="Platna kartica" textAlignment="RIGHT" onAction="#creditCardAction"
+                              style="-fx-font-size: 14;" styleClass="subtitle"/>
+                    <GridPane  hgap="5" vgap="10" alignment="CENTER">
+                        <Label text="Broj:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <Label text="Validnost:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <Label text="Verifikacioni kod:" wrapText="true" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <TextField fx:id="editCardNumber" maxWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <TextField fx:id="editCardValid" maxWidth="50" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <TextField fx:id="editCardCode" maxWidth="50" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    </GridPane>
+                </VBox>
+                <VBox spacing="15" styleClass="panel" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <Label text="Nalog" styleClass="subtitle" style="-fx-font-size: 14;"/>
+                    <GridPane  hgap="5" vgap="10" alignment="CENTER">
+                        <Label text="Korisnik:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <Label text="Lozinka:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <Label text="Potvrda:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <TextField fx:id="editUsername" maxWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                                   style="-fx-background-image: url('resources/images/user20.png');" styleClass="text_field_image"/>
+                        <TextField fx:id="editPassword" maxWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <TextField fx:id="editPasswordRep" maxWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    </GridPane>
+                </VBox>
+                <VBox spacing="15" styleClass="panel" GridPane.columnIndex="1" GridPane.rowIndex="1" alignment="CENTER">
+                    <Label text="Komentar" styleClass="subtitle" style="-fx-font-size: 14;"/>
+                    <TextArea fx:id="editComment" maxWidth="200" maxHeight="80"/>
+                    <Button fx:id="editButon" text="Izmena" onAction="#activateEditMode"
+                            styleClass="button_base" style="-fx-graphic: url('@../../resources/images/edit24.png')"/>
+                    <HBox fx:id="editCommandBox" spacing="10" alignment="CENTER" visible="false">
+                        <Button text="Sacuvaj" onAction="#saveChanges"
+                                styleClass="button_base" style="-fx-graphic: url('@../../resources/images/save24.png')"/>
+                        <Button text="Odustani" onAction="#discardChanges"
+                                styleClass="button_base" style="-fx-graphic: url('@../../resources/images/cancel24.png')"/>
+                    </HBox>
+                </VBox>
+            </GridPane>
+        </VBox>
     </center>
 </BorderPane>

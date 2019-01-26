@@ -13,15 +13,23 @@
         <VBox spacing="20" alignment="CENTER">
             <Label text="Registrovanje novog korisnika" styleClass="subtitle"/>
             <GridPane  hgap="15" vgap="20" alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" percentWidth="45.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" percentWidth="45.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints vgrow="SOMETIMES" minHeight="210.0" percentHeight="45.0" />
+                    <RowConstraints vgrow="SOMETIMES" minHeight="210.0" percentHeight="45.0" />
+                </rowConstraints>
                 <VBox spacing="15" styleClass="panel" GridPane.columnIndex="0" GridPane.rowIndex="0">
                     <Label text="Osnovno" styleClass="subtitle" style="-fx-font-size: 14;"/>
-                    <fx:define>
-                        <ToggleGroup fx:id="userRadioGroup"/>
-                    </fx:define>
-                    <HBox spacing="10">
-                        <RadioButton text="Kupac" selected="true" toggleGroup="$userRadioGroup"/>
-                        <RadioButton text="Majstor" toggleGroup="$userRadioGroup"/>
-                    </HBox>
+                    <!--<fx:define>-->
+                        <!--<ToggleGroup fx:id="userRadioGroup"/>-->
+                    <!--</fx:define>-->
+                    <!--<HBox spacing="10">-->
+                        <!--<RadioButton text="Kupac" selected="true" toggleGroup="$userRadioGroup"/>-->
+                        <!--<RadioButton text="Majstor" toggleGroup="$userRadioGroup"/>-->
+                    <!--</HBox>-->
                     <HBox spacing="15">
                         <GridPane  hgap="5" vgap="10" alignment="CENTER">
                             <Label text="Ime:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
@@ -42,7 +50,7 @@
                     </HBox>
                 </VBox>
                 <VBox spacing="15" styleClass="panel" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                    <CheckBox fx:id="regPayCheck" text="Platna kartica" textAlignment="RIGHT"
+                    <CheckBox fx:id="regPayCheck" text="Platna kartica" textAlignment="RIGHT" onAction="#creditCardAction"
                               style="-fx-font-size: 14;" styleClass="subtitle"/>
                     <GridPane  hgap="5" vgap="10" alignment="CENTER">
                         <Label text="Broj:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
