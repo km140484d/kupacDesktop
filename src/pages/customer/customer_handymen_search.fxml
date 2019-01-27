@@ -8,12 +8,12 @@
     <top>
         <VBox alignment="CENTER">
             <fx:include fx:id="customerMenu" source="../menu/customer_menu.fxml"/>
-            <fx:include fx:id="customerSearchForm" source="../search.fxml"/>
+            <fx:include fx:id="search" source="../search.fxml"/>
         </VBox>
     </top>
     <center>
-        <ScrollPane fx:id="customerSearchScroll" style="-fx-padding:20;">
-            <VBox fx:id="customerSearchResults" alignment="center"/>
+        <ScrollPane fx:id="customerSearchScroll" style="-fx-padding:20;" maxWidth="Infinity">
+            <VBox fx:id="customerSearchResults" alignment="center" maxWidth="Infinity"/>
         </ScrollPane>
     </center>
 </BorderPane>

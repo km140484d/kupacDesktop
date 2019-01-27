@@ -75,7 +75,7 @@
                 </VBox>
                 <VBox spacing="15" styleClass="panel" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <Label text="Komentar" styleClass="subtitle" style="-fx-font-size: 14;"/>
-                    <TextArea fx:id="regComment" maxWidth="200" maxHeight="80"/>
+                    <TextArea fx:id="regComment" maxWidth="200" maxHeight="80" wrapText="true"/>
                     <HBox spacing="10" alignment="CENTER">
                         <Button fx:id="regSave" text="Sacuvaj" onAction="#saveCustomerInfo"
                                 styleClass="button_base" style="-fx-graphic: url('@../../resources/images/save24.png')"/>

@@ -3,6 +3,7 @@ package controllers;
 import beans.Handyman;
 import beans.Occupation;
 import beans.Skill;
+import controllers.customer.CustomerSearchController;
 import controllers.guest.IndexSearchController;
 import database.DB;
 import javafx.event.ActionEvent;
@@ -47,6 +48,8 @@ public class SearchController extends Controller implements Initializable {
 
     private IndexSearchController indexSearchController;
 
+    private CustomerSearchController customerSearchController;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         List<Occupation> occupations = DB.getDBInstance().getOccupations();
@@ -83,10 +86,16 @@ public class SearchController extends Controller implements Initializable {
         ).collect(Collectors.toList());
         if (indexSearchController != null)
             indexSearchController.displayHandymenResults(handymenResult, (String) searchJob.getValue());
+        else
+            customerSearchController.displayHandymenResults(handymenResult, (String) searchJob.getValue());
     }
 
     public void setParentIndexController(IndexSearchController indexSearchController){
         this.indexSearchController = indexSearchController;
+    }
+
+    public void setParentCustomerController(CustomerSearchController customerSearchController){
+        this.customerSearchController = customerSearchController;
     }
 
 }

@@ -88,7 +88,7 @@ public class DB {
         currentHandyman = new Handyman("Djordje", "Danicic", "0645556667", "djolence@gmail.com",
                 skills.subList(3,3));
         jobs = new ArrayList<>();
-        jobs.add(currentHandyman.new Job(occupations.get(0), 2300, 1,4));
+        jobs.add(currentHandyman.new Job(occupations.get(0), 2300, 1,2));
         jobs.add(currentHandyman.new Job(occupations.get(2), 2500, 7,5));
         currentHandyman.setJobs(jobs);
         handymen.add(currentHandyman);

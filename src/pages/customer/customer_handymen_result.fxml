@@ -4,26 +4,33 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import org.controlsfx.control.Rating?>
 <HBox xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.customer.HandymanResultController" spacing="50"
       styleClass="panel" style="-fx-padding: 10" maxWidth="Infinity">
-    <ImageView fx:id="userImageView" fitHeight="100.0" fitWidth="100.0">
-        <Image url="@../../resources/images/person_holder.gif"/>
-    </ImageView>
-    <VBox spacing="20">
-        <Label fx:id="customerSearchResultHandyman" text="Ime i prezime majstora"
-               styleClass="label_field" style="-fx-font-weight: bold;"/>
-        <Label fx:id="customerSearchResultJob" text="Posao" styleClass="label_field"/>
-    </VBox>
-    <VBox alignment="CENTER">
-        <Rating fx:id="customerSearchResultRating" disable="true" scaleX="0.75" scaleY="0.75"/>
-    </VBox>
-    <VBox spacing="10" style="-fx-padding: 10;">
-        <Button fx:id="customerHandymanProfile" text="Pregled profila" onAction="#viewHandymanProfile"
-               styleClass="button_result" style="-fx-graphic: url('@../../resources/images/glasses24.png')"/>
-        <Button fx:id="customerRequestMail" text="Slanje zahteva" onAction="#sendHandymanRequest"
-                styleClass="button_result" style="-fx-graphic: url('@../../resources/images/mail24.png')"/>
-    </VBox>
+    <GridPane hgap="30">
+        <columnConstraints>
+            <ColumnConstraints minWidth="100" percentWidth="25"/>
+            <ColumnConstraints minWidth="100" percentWidth="25"/>
+            <ColumnConstraints minWidth="100" percentWidth="25"/>
+            <ColumnConstraints minWidth="100" percentWidth="25"/>
+        </columnConstraints>
+        <ImageView fx:id="userImageView" GridPane.rowIndex="0" GridPane.columnIndex="0" fitHeight="100.0" fitWidth="100.0">
+            <Image url="@../../resources/images/person_holder.gif"/>
+        </ImageView>
+        <VBox GridPane.rowIndex="0" GridPane.columnIndex="1" spacing="20" maxWidth="Infinity" alignment="CENTER">
+            <Label fx:id="customerSearchResultHandyman" text="Ime i prezime majstora" wrapText="true"
+                   styleClass="label_field" style="-fx-font-weight: bold;"/>
+            <Label fx:id="customerSearchResultJob" styleClass="label_field" wrapText="true"/>
+        </VBox>
+        <VBox GridPane.rowIndex="0" GridPane.columnIndex="2" alignment="CENTER">
+            <Rating fx:id="customerSearchResultRating" disable="true" scaleX="0.75" scaleY="0.75"/>
+        </VBox>
+        <VBox GridPane.rowIndex="0" GridPane.columnIndex="3" spacing="10" style="-fx-padding: 10;">
+            <Button fx:id="customerHandymanProfile" text="Pregled profila" onAction="#viewHandymanProfile"
+                   styleClass="button_result" style="-fx-graphic: url('@../../resources/images/glasses24.png')"/>
+            <Button fx:id="customerRequestMail" text="Slanje zahteva" onAction="#sendHandymanRequest"
+                    styleClass="button_result" style="-fx-graphic: url('@../../resources/images/mail24.png')"/>
+        </VBox>
+    </GridPane>
 </HBox>
