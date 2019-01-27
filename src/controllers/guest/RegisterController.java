@@ -1,9 +1,9 @@
 package controllers.guest;
 
 import beans.Customer;
-import beans.DB;
 import controllers.Controller;
 import controllers.menu.MainMenuController;
+import database.DB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

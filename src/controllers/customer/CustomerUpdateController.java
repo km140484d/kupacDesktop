@@ -1,10 +1,10 @@
 package controllers.customer;
 
 import beans.Customer;
-import beans.DB;
 import components.Window;
 import controllers.Controller;
 import controllers.menu.CustomerMenuController;
+import database.DB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

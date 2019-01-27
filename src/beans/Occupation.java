@@ -10,11 +10,11 @@ public class Occupation {
         this.work = occupation;
     }
 
-    public String getOccupation() {
+    public String getWork() {
         return work;
     }
 
-    public void setOccupation(String work) {
+    public void setWork(String work) {
         this.work = work;
     }
 }

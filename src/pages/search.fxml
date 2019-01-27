@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import components.BorderTitlePanel?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import components.BorderTitlePanel?>
 <?import org.controlsfx.control.Rating?>
 <BorderTitlePanel xmlns:fx="http://www.w3.org/1999/XSL/Transform" fx:controller="controllers.SearchController"
                   stylesheets="@../resources/css/base" style="-fx-background-color: 'E0E0E0';"
-                  title="Parametri pretrage" alignment="CENTER" maxWidth="760" fillWidth="true">
+                  title="Parametri pretrage" alignment="CENTER" maxWidth="760">
     <GridPane  hgap="50" alignment="CENTER" style="-fx-padding: 10;">
         <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
             <VBox spacing="5">
@@ -26,7 +26,8 @@
             </VBox>
             <VBox spacing="5">
                 <Label text="Urgentnost" styleClass="label_field"/>
-                <Slider min="0" max="10" maxWidth="100" translateX="20"/>
+                <Slider fx:id="searchUrgency" max="10" maxWidth="100" translateX="20"
+                        blockIncrement="1.0" majorTickUnit="1.0" minorTickCount="0" showTickMarks="true"/>
             </VBox>
         </VBox>
         <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
@@ -52,13 +53,17 @@
             </GridPane>
         </VBox>
         <VBox GridPane.columnIndex="2" GridPane.rowIndex="0">
-            <VBox spacing="5">
+            <VBox spacing="3">
                 <Label text="Ocena" styleClass="label_field"/>
-                <Rating fx:id="searchRating" maxWidth="100" scaleX="0.75" scaleY="0.75"/>
+                <Rating fx:id="searchRating" maxWidth="100" scaleX="0.6" scaleY="0.6"/>
             </VBox>
-            <VBox spacing="5">
-                <Label text="Veštine" styleClass="label_field"/>
-                <ComboBox fx:id="searchSkills" maxWidth="100" translateX="20"/>
+            <VBox spacing="10">
+                <VBox spacing="3">
+                    <Label text="Veštine" styleClass="label_field"/>
+                    <ComboBox fx:id="searchSkills" maxWidth="100" translateX="20"/>
+                </VBox>
+                <Button text="Pretraga" onAction="#search"
+                        styleClass="button_base" style="-fx-graphic: url('@../../resources/images/search24.png')"/>
             </VBox>
         </VBox>
     </GridPane>

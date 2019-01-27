@@ -1,4 +1,9 @@
-package beans;
+package database;
+
+import beans.Customer;
+import beans.Handyman;
+import beans.Occupation;
+import beans.Skill;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -13,6 +18,7 @@ public class DB {
     private static Calendar calendar = Calendar.getInstance();
     private static List<Customer> customers = new ArrayList<>();
     private static List<Occupation> occupations = new ArrayList<>();
+    private static List<Skill> skills = new ArrayList<>();
     private static List<Handyman> handymen = new ArrayList<>();
     private static List<Handyman.Job> jobs = new ArrayList<>();
     private static Customer currentCustomer;
@@ -48,6 +54,11 @@ public class DB {
         occupations.add(new Occupation("Stolar")); //2
         occupations.add(new Occupation("Vodoinstalater")); //3
         occupations.add(new Occupation("Tapetar")); //4
+
+        //SKILLS
+        skills.add(new Skill("Farbanje"));
+        skills.add(new Skill("Krecenje"));
+        skills.add(new Skill("Plocice"));
 
         //HANDYMEN
         currentHandyman = new Handyman("Elena", "Vuceljić", "06911122330", "elena@hotmail.com",
@@ -92,6 +103,10 @@ public class DB {
 
     public static List<Occupation> getOccupations() {
         return occupations;
+    }
+
+    public static List<Skill> getSkills() {
+        return skills;
     }
 
     public static List<Handyman> getHandymen() {
