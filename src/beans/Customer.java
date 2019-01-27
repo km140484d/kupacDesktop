@@ -118,4 +118,8 @@ public class Customer extends User{
     public void addRequestArchive(Request request){
         requests.add(0, request);
     }
+
+    public List<Request> getRequests() {
+        return requests;
+    }
 }
