@@ -12,6 +12,7 @@ public class BorderTitlePanel extends VBox {
     public void setContent(Node content){
         content.getStyleClass().add("bordered-titled-content");
         contentPane.getChildren().add(content);
+        contentPane.setMaxWidth(Double.POSITIVE_INFINITY);
     }
 
     public Node getContent() { return content; }
@@ -29,6 +30,7 @@ public class BorderTitlePanel extends VBox {
         titleLabel.getStyleClass().add("bordered-titled-title");
         getStyleClass().add("bordered-titled-border");
         getChildren().addAll(titleLabel, contentPane);
+        setMaxWidth(Double.POSITIVE_INFINITY);
     }
 
 }

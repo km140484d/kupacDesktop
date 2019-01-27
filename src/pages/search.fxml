@@ -6,31 +6,29 @@
 <?import org.controlsfx.control.Rating?>
 <BorderTitlePanel xmlns:fx="http://www.w3.org/1999/XSL/Transform" fx:controller="controllers.SearchController"
                   stylesheets="@../resources/css/base" style="-fx-background-color: 'E0E0E0';"
-                  title="Parametri pretrage" alignment="CENTER" maxWidth="760">
+                  title="Parametri pretrage" alignment="CENTER" minWidth="760">
     <GridPane  hgap="50" alignment="CENTER" style="-fx-padding: 10;">
-        <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
-            <VBox spacing="5">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="150" percentWidth="25"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="150" percentWidth="50"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="150" percentWidth="25"/>
+        </columnConstraints>
+        <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <VBox spacing="3">
                 <Label text="Posao" styleClass="label_field"/>
-                <ComboBox fx:id="searchJob" maxWidth="100" translateX="20">
-                    <!--<items>-->
-                    <!--<FXCollections fx:factory="observableArrayList">-->
-                    <!--<String fx:value="Car" />-->
-                    <!--<String fx:value="Truck" />-->
-                    <!--<String fx:value="Van" />-->
-                    <!--</FXCollections>-->
-                    <!--</items>-->
-                    <!--<value>-->
-                    <!--<String fx:value="Car" />-->
-                    <!--</value>-->
-                </ComboBox>
+                <ComboBox fx:id="searchJob" maxWidth="100" translateX="20"/>
             </VBox>
-            <VBox spacing="5">
+            <VBox spacing="3">
+                <Label text="Veštine" styleClass="label_field"/>
+                <ComboBox fx:id="searchSkills" maxWidth="100" translateX="20"/>
+            </VBox>
+            <VBox spacing="3">
                 <Label text="Urgentnost" styleClass="label_field"/>
                 <Slider fx:id="searchUrgency" max="10" maxWidth="100" translateX="20"
                         blockIncrement="1.0" majorTickUnit="1.0" minorTickCount="0" showTickMarks="true"/>
             </VBox>
         </VBox>
-        <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <VBox alignment="CENTER" spacing="8" GridPane.columnIndex="1" GridPane.rowIndex="0">
             <GridPane  hgap="5" vgap="15" alignment="CENTER">
                 <Label text="Cena:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
                 <Label text="Datum:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
@@ -52,17 +50,13 @@
                 </HBox>
             </GridPane>
         </VBox>
-        <VBox GridPane.columnIndex="2" GridPane.rowIndex="0">
+        <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="0">
             <VBox spacing="3">
                 <Label text="Ocena" styleClass="label_field"/>
-                <Rating fx:id="searchRating" maxWidth="100" scaleX="0.6" scaleY="0.6"/>
+                <Rating fx:id="searchRating" updateOnHover="true" maxWidth="100" scaleX="0.6" scaleY="0.6"/>
             </VBox>
             <VBox spacing="10">
-                <VBox spacing="3">
-                    <Label text="Veštine" styleClass="label_field"/>
-                    <ComboBox fx:id="searchSkills" maxWidth="100" translateX="20"/>
-                </VBox>
-                <Button text="Pretraga" onAction="#search"
+                <Button text="Pretraga" onAction="#search" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0"
                         styleClass="button_base" style="-fx-graphic: url('@../../resources/images/search24.png')"/>
             </VBox>
         </VBox>

@@ -13,7 +13,7 @@
     <VBox spacing="20">
         <Label fx:id="indexSearchResultHandyman" text="Ime i prezime majstora"
                styleClass="label_field" style="-fx-font-weight: bold;"/>
-        <Label fx:id="indexSearchResultJob" text="Posao" styleClass="label_field"/>
+        <Label fx:id="indexSearchResultJob" styleClass="label_field"/>
     </VBox>
     <VBox alignment="CENTER">
         <Rating fx:id="indexSearchResultRating" disable="true" scaleX="0.75" scaleY="0.75"/>

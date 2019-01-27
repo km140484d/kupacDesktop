@@ -40,7 +40,7 @@ public class DB {
                 "km140484d", "123", "Odgovaraju popodnevni časovi za popravke.");
         currentCustomer.setCreditCard(currentCustomer.new CreditCard("1234567891234567", localDate,"123", 10230.56));
         customers.add(currentCustomer);
-        calendar.set(2019, calendar.MAY, 1);
+        calendar.set(2019, Calendar.MAY, 1);
         localDate =  calendar.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         currentCustomer = new Customer("Luka", "Savić", "0619599678", "lukasavic@yahoo.com",
                 "sl140283d", "123", "Pozeljan rad vikendom.");
@@ -59,36 +59,37 @@ public class DB {
         skills.add(new Skill("Farbanje"));
         skills.add(new Skill("Krecenje"));
         skills.add(new Skill("Plocice"));
+        skills.add(new Skill("Drvorez"));
 
         //HANDYMEN
         currentHandyman = new Handyman("Elena", "Vuceljić", "06911122330", "elena@hotmail.com",
-                "Farbanje");
-        jobs.add(currentHandyman.new Job(occupations.get(0), 2000, 10));
+               skills.subList(0,0));
+        jobs.add(currentHandyman.new Job(occupations.get(0), 2000, 5, 4));
         currentHandyman.setJobs(jobs);
         handymen.add(currentHandyman);
 
         currentHandyman = new Handyman("Milica", "Bulatović", "06922277335", "mica@gmail.com",
-                "Krecenje");
-        jobs.clear();
-        jobs.add(currentHandyman.new Job(occupations.get(0), 1800, 9));
-        jobs.add(currentHandyman.new Job(occupations.get(1), 1300, 7));
-        jobs.add(currentHandyman.new Job(occupations.get(4), 1800, 10));
+                skills.subList(0,1));
+        jobs = new ArrayList<>();
+        jobs.add(currentHandyman.new Job(occupations.get(0), 1800, 8 ,4));
+        jobs.add(currentHandyman.new Job(occupations.get(1), 1300, 2,3));
+        jobs.add(currentHandyman.new Job(occupations.get(4), 1800, 4,5));
         currentHandyman.setJobs(jobs);
         handymen.add(currentHandyman);
 
         currentHandyman = new Handyman("Dane", "Nikolić", "0645556667", "dane@gmail.com",
-                "Plocice");
-        jobs.clear();
-        jobs.add(currentHandyman.new Job(occupations.get(1), 1500, 8));
-        jobs.add(currentHandyman.new Job(occupations.get(2), 2100, 10));
+                skills.subList(2,2));
+        jobs = new ArrayList<>();
+        jobs.add(currentHandyman.new Job(occupations.get(1), 1500, 6,4));
+        jobs.add(currentHandyman.new Job(occupations.get(2), 2100, 12,5));
         currentHandyman.setJobs(jobs);
         handymen.add(currentHandyman);
 
-        currentHandyman = new Handyman("Dane", "Danicic", "0645556667", "djolence@gmail.com",
-                "Drvorez");
-        jobs.clear();
-        jobs.add(currentHandyman.new Job(occupations.get(0), 2300, 8));
-        jobs.add(currentHandyman.new Job(occupations.get(2), 2500, 10));
+        currentHandyman = new Handyman("Djordje", "Danicic", "0645556667", "djolence@gmail.com",
+                skills.subList(3,3));
+        jobs = new ArrayList<>();
+        jobs.add(currentHandyman.new Job(occupations.get(0), 2300, 1,4));
+        jobs.add(currentHandyman.new Job(occupations.get(2), 2500, 7,5));
         currentHandyman.setJobs(jobs);
         handymen.add(currentHandyman);
 
