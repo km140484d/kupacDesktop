@@ -38,8 +38,9 @@
                             <ToggleGroup fx:id="paymentRadioGroup"/>
                         </fx:define>
                         <VBox spacing="10" translateX="30">
-                            <RadioButton text="Keš" toggleGroup="$paymentRadioGroup"/>
-                            <RadioButton text="Kartica" selected="true" toggleGroup="$paymentRadioGroup"/>
+                            <RadioButton text="Keš" toggleGroup="$paymentRadioGroup" onAction="#cashSelected"/>
+                            <RadioButton fx:id="creditCardRadio" text="Kartica" selected="true" toggleGroup="$paymentRadioGroup"
+                                         onAction="#creditCardSelected"/>
                         </VBox>
                         <BorderTitlePanel title="Kartica" alignment="CENTER_LEFT">
                             <GridPane  hgap="5" vgap="10" alignment="CENTER" style="-fx-padding:5;">
@@ -54,10 +55,10 @@
                                 <Label text="Verifikacioni kod:" wrapText="true" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                                 <TextField fx:id="requestCardNumber" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="3"
                                            style="-fx-background-image: url('resources/images/credit20.png');" styleClass="text_field_image"/>
-                                <TextField fx:id="requestCardValidity" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                <DatePicker fx:id="requestCardValidity" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
                                 <TextField fx:id="requestCardCode" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
                                 <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.columnSpan="2" GridPane.rowSpan="2">
-                                    <Button fx:id="requestCardSave" text="Sacuvaj" styleClass="button_base"
+                                    <Button fx:id="requestCardSave" onAction="#saveCreditCard" text="Sacuvaj" styleClass="button_base"
                                             style="-fx-graphic: url('@../../resources/images/save24.png')" alignment="CENTER"/>
                                 </VBox>
                             </GridPane>

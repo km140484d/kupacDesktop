@@ -79,7 +79,7 @@ public class RegisterController extends Controller implements Initializable {
         if (regPayCheck.isSelected())
             customer.setCreditCard(
                     customer.new CreditCard(regCardNumber.getText(),
-                            regCardValid.getValue(), regCardCode.getText(), 0));
+                            regCardValid.getValue(), regCardCode.getText(), 0.0));
         DB.getDBInstance().addCustomer(customer);
         login();
     }

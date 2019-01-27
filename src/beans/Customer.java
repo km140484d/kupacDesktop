@@ -11,9 +11,9 @@ public class Customer extends User{
         private String number;
         private LocalDate validity;
         private String code;
-        private double balance;
+        private Double balance;
 
-        public CreditCard(String number, LocalDate validity, String code, double balance) {
+        public CreditCard(String number, LocalDate validity, String code, Double balance) {
             this.number = number;
             this.validity = validity;
             this.code = code;
@@ -44,11 +44,11 @@ public class Customer extends User{
             this.code = code;
         }
 
-        public double getBalance() {
+        public Double getBalance() {
             return balance;
         }
 
-        public void setBalance(double balance) {
+        public void setBalance(Double balance) {
             this.balance = balance;
         }
     }
@@ -85,11 +85,8 @@ public class Customer extends User{
     private List<Request> requests = new ArrayList<>();
 
     public Customer(String name, String surname, String phone, String email,
-//                    CreditCard creditCard,
-                    //String number, Date validity, String code, double balance,
                     String username, String password, String comment){
         super(name, surname, phone, email);
-//        this.creditCard = creditCard;
         this.account = new Account(username, password);
         this.comment = comment;
     }
@@ -119,6 +116,6 @@ public class Customer extends User{
     }
 
     public void addRequestArchive(Request request){
-        requests.add(request);
+        requests.add(0, request);
     }
 }

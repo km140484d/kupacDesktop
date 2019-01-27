@@ -101,3 +101,10 @@
   -fx-font-family: Comic Sans MS;
   -fx-font-size: 13;
 }
+
+.empty-field{
+  -fx-text-box-border: red ;
+  -fx-focus-color: red ;
+  -fx-outer-border: red;
+  -fx-inner-border: red;
+}

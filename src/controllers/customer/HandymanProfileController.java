@@ -40,7 +40,7 @@ public class HandymanProfileController extends Controller implements Initializab
     @FXML
     private TableColumn<TableJob, String> handymanJobColumn;
     @FXML
-    private TableColumn<TableJob, String> handymanPriceColumn;
+    private TableColumn<TableJob, Double> handymanPriceColumn;
     @FXML
     private TableColumn<TableJob, Double> handymanRatingColumn;
     @FXML
@@ -70,10 +70,10 @@ public class HandymanProfileController extends Controller implements Initializab
 
     public class TableJob{
         private String occupation;
-        private Integer price;
+        private Double price;
         private double rating;
 
-        public TableJob(String occupation, Integer price, double rating) {
+        public TableJob(String occupation, Double price, double rating) {
             this.occupation = occupation;
             this.price = price;
             this.rating = rating;
@@ -87,11 +87,11 @@ public class HandymanProfileController extends Controller implements Initializab
             this.occupation = occupation;
         }
 
-        public Integer getPrice() {
+        public Double getPrice() {
             return price;
         }
 
-        public void setPrice(Integer price) {
+        public void setPrice(Double price) {
             this.price = price;
         }
 

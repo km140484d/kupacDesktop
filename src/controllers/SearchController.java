@@ -66,8 +66,8 @@ public class SearchController extends Controller implements Initializable {
         String priceMaxText = searchPriceMax.getText();
         String expMinText = searchExpMin.getText();
         String expMaxText = searchExpMax.getText();
-        Integer priceMinValue = priceMinText.isEmpty() ? null : Integer.parseInt(priceMinText);
-        Integer priceMaxValue = priceMaxText.isEmpty() ? null : Integer.parseInt(priceMaxText);
+        Double priceMinValue = priceMinText.isEmpty() ? null : Double.parseDouble(priceMinText);
+        Double priceMaxValue = priceMaxText.isEmpty() ? null : Double.parseDouble(priceMaxText);
         Integer expMinValue = expMinText.isEmpty() ? null : Integer.parseInt(expMinText);
         Integer expMaxValue = expMaxText.isEmpty() ? null : Integer.parseInt(expMaxText);
         double ratingValue = searchRating.getRating();

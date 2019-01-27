@@ -10,6 +10,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DB {
 
@@ -64,32 +65,32 @@ public class DB {
         //HANDYMEN
         currentHandyman = new Handyman("Elena", "Vuceljić", "06911122330", "elena@hotmail.com",
                skills.subList(0,1));
-        jobs.add(currentHandyman.new Job(occupations.get(0), 2000, 5, 4));
+        jobs.add(currentHandyman.new Job(occupations.get(0), 2000.00, 5, 4));
         currentHandyman.setJobs(jobs);
         handymen.add(currentHandyman);
 
         currentHandyman = new Handyman("Milica", "Bulatović", "06922277335", "mica@gmail.com",
                 skills.subList(0,2));
         jobs = new ArrayList<>();
-        jobs.add(currentHandyman.new Job(occupations.get(0), 1800, 8 ,4));
-        jobs.add(currentHandyman.new Job(occupations.get(1), 1300, 2,3));
-        jobs.add(currentHandyman.new Job(occupations.get(4), 1800, 4,5));
+        jobs.add(currentHandyman.new Job(occupations.get(0), 1800.00, 8 ,4));
+        jobs.add(currentHandyman.new Job(occupations.get(1), 1300.00, 2,3));
+        jobs.add(currentHandyman.new Job(occupations.get(4), 1800.00, 4,5));
         currentHandyman.setJobs(jobs);
         handymen.add(currentHandyman);
 
         currentHandyman = new Handyman("Dane", "Nikolić", "0645556667", "dane@gmail.com",
                 skills.subList(1,2));
         jobs = new ArrayList<>();
-        jobs.add(currentHandyman.new Job(occupations.get(1), 1500, 6,4));
-        jobs.add(currentHandyman.new Job(occupations.get(2), 2100, 12,5));
+        jobs.add(currentHandyman.new Job(occupations.get(1), 1500.00, 6,4));
+        jobs.add(currentHandyman.new Job(occupations.get(2), 2100.00, 12,5));
         currentHandyman.setJobs(jobs);
         handymen.add(currentHandyman);
 
         currentHandyman = new Handyman("Djordje", "Danicic", "0645556667", "djolence@gmail.com",
                 skills.subList(2,3));
         jobs = new ArrayList<>();
-        jobs.add(currentHandyman.new Job(occupations.get(0), 2300, 1,2));
-        jobs.add(currentHandyman.new Job(occupations.get(2), 2500, 7,5));
+        jobs.add(currentHandyman.new Job(occupations.get(0), 2300.00, 1,2));
+        jobs.add(currentHandyman.new Job(occupations.get(2), 2500.00, 7,5));
         currentHandyman.setJobs(jobs);
         handymen.add(currentHandyman);
 
@@ -130,5 +131,12 @@ public class DB {
         DB.currentHandyman = currentHandyman;
     }
 
+    public Handyman.Job findJob(String job){
+        return jobs.stream().filter(p  -> p.getOccupation().getWork().equals(job)).collect(Collectors.toList()).get(0);
+    }
 
+    public LocalDate currentDate(){
+        calendar = Calendar.getInstance();
+        return calendar.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
 }

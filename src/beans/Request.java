@@ -1,6 +1,7 @@
 package beans;
 
-import java.util.Date;
+
+import java.time.LocalDate;
 
 public class Request {
 
@@ -8,9 +9,14 @@ public class Request {
         POSLAT, OTKAZAN, ODBIJEN, REALIZOVAN
     }
 
-    private class Address{
+    public class Address{
         private String county;
         private String streetNumber;
+
+        public Address(String county, String streetNumber) {
+            this.county = county;
+            this.streetNumber = streetNumber;
+        }
 
         public String getCounty() {
             return county;
@@ -32,14 +38,26 @@ public class Request {
     private static int stId = 0;
     private int id = ++stId;
     private Handyman handyman;
-    private int jobId;
+    private Handyman.Job job;
     private Address address;
-    private Date requestCreatedDate;
-    private Date requestDate;
-    private int urgency;
-    private boolean cash = true;
+    private LocalDate requestCreatedDate;
+    private LocalDate requestDate;
+    private Double urgency;
+    private Boolean cash;
     private RequestStates currentState = RequestStates.POSLAT;
-    private int rating;
+    private Integer rating;
+
+    public Request(Handyman handyman, Handyman.Job job, String county, String streetNumber,
+                   LocalDate requestCreatedDate, LocalDate requestDate, Double urgency,
+                   Boolean cash) {
+        this.handyman = handyman;
+        this.job = job;
+        this.address = new Address(county, streetNumber);
+        this.requestCreatedDate = requestCreatedDate;
+        this.requestDate = requestDate;
+        this.urgency = urgency;
+        this.cash = cash;
+    }
 
     public int getId() {
         return id;
@@ -57,12 +75,12 @@ public class Request {
         this.handyman = handyman;
     }
 
-    public int getJobId() {
-        return jobId;
+    public Handyman.Job getJob() {
+        return job;
     }
 
-    public void setJobId(int jobId) {
-        this.jobId = jobId;
+    public void setJob(Handyman.Job job) {
+        this.job = job;
     }
 
     public Address getAddress() {
@@ -73,35 +91,35 @@ public class Request {
         this.address = address;
     }
 
-    public Date getRequestCreatedDate() {
+    public LocalDate getRequestCreatedDate() {
         return requestCreatedDate;
     }
 
-    public void setRequestCreatedDate(Date requestCreatedDate) {
+    public void setRequestCreatedDate(LocalDate requestCreatedDate) {
         this.requestCreatedDate = requestCreatedDate;
     }
 
-    public Date getRequestDate() {
+    public LocalDate getRequestDate() {
         return requestDate;
     }
 
-    public void setRequestDate(Date requestDate) {
+    public void setRequestDate(LocalDate requestDate) {
         this.requestDate = requestDate;
     }
 
-    public int getUrgency() {
+    public Double getUrgency() {
         return urgency;
     }
 
-    public void setUrgency(int urgency) {
+    public void setUrgency(Double urgency) {
         this.urgency = urgency;
     }
 
-    public boolean isCash() {
+    public Boolean isCash() {
         return cash;
     }
 
-    public void setCash(boolean cash) {
+    public void setCash(Boolean cash) {
         this.cash = cash;
     }
 
@@ -113,11 +131,11 @@ public class Request {
         this.currentState = currentState;
     }
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 }

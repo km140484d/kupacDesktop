@@ -9,11 +9,11 @@ public class Handyman extends User{
     public class Job{
         private int id = ++jobStId;
         private Occupation occupation;
-        private Integer price;
+        private Double price;
         private Integer experience;
         private double rating;
 
-        public Job(Occupation occupation, Integer price, Integer experience, double rating) {
+        public Job(Occupation occupation, Double price, Integer experience, double rating) {
             this.occupation = occupation;
             this.price = price;
             this.experience = experience;
@@ -28,11 +28,11 @@ public class Handyman extends User{
             this.occupation = occupation;
         }
 
-        public Integer getPrice() {
+        public Double getPrice() {
             return price;
         }
 
-        public void setPrice(Integer price) {
+        public void setPrice(Double price) {
             this.price = price;
         }
 
