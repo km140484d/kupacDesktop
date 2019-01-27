@@ -31,6 +31,7 @@ public class HandymanResultController extends Controller {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(customerPageURL + "handyman_profile.fxml"));
         BorderPane root = fxmlLoader.load();
         ((HandymanProfileController)fxmlLoader.getController()).setResultController(this);
+        ((HandymanProfileController)fxmlLoader.getController()).setRoot(root);
         scene.setRoot(root);
     }
 

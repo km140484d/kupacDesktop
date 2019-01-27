@@ -63,13 +63,13 @@ public class DB {
 
         //HANDYMEN
         currentHandyman = new Handyman("Elena", "Vuceljić", "06911122330", "elena@hotmail.com",
-               skills.subList(0,0));
+               skills.subList(0,1));
         jobs.add(currentHandyman.new Job(occupations.get(0), 2000, 5, 4));
         currentHandyman.setJobs(jobs);
         handymen.add(currentHandyman);
 
         currentHandyman = new Handyman("Milica", "Bulatović", "06922277335", "mica@gmail.com",
-                skills.subList(0,1));
+                skills.subList(0,2));
         jobs = new ArrayList<>();
         jobs.add(currentHandyman.new Job(occupations.get(0), 1800, 8 ,4));
         jobs.add(currentHandyman.new Job(occupations.get(1), 1300, 2,3));
@@ -78,7 +78,7 @@ public class DB {
         handymen.add(currentHandyman);
 
         currentHandyman = new Handyman("Dane", "Nikolić", "0645556667", "dane@gmail.com",
-                skills.subList(2,2));
+                skills.subList(1,2));
         jobs = new ArrayList<>();
         jobs.add(currentHandyman.new Job(occupations.get(1), 1500, 6,4));
         jobs.add(currentHandyman.new Job(occupations.get(2), 2100, 12,5));
@@ -86,7 +86,7 @@ public class DB {
         handymen.add(currentHandyman);
 
         currentHandyman = new Handyman("Djordje", "Danicic", "0645556667", "djolence@gmail.com",
-                skills.subList(3,3));
+                skills.subList(2,3));
         jobs = new ArrayList<>();
         jobs.add(currentHandyman.new Job(occupations.get(0), 2300, 1,2));
         jobs.add(currentHandyman.new Job(occupations.get(2), 2500, 7,5));

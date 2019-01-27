@@ -5,7 +5,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import org.controlsfx.control.Rating?>
 <BorderPane xmlns:fx="http://www.w3.org/1999/XSL/Transform" stylesheets="@../../resources/css/base"
             fx:controller="controllers.customer.MailRequestController" style="-fx-background-color: 'E0E0E0';">
     <top>
@@ -29,7 +28,8 @@
                             <Label text="Urgentnost:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                             <ComboBox fx:id="requestJob" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
                             <DatePicker fx:id="requestTime" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                            <Rating fx:id="requestUrgency" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                            <Slider fx:id="requestUrgency" GridPane.columnIndex="1" GridPane.rowIndex="2" max="10" maxWidth="100" translateX="20"
+                                    blockIncrement="1.0" majorTickUnit="1.0" minorTickCount="0" showTickMarks="true"/>
                         </GridPane>
                     </VBox>
                     <VBox spacing="10">
@@ -77,8 +77,10 @@
                         <Image url="@../../resources/images/map.jpg"/>
                     </ImageView>
                     <HBox spacing="10">
-                        <Button text="Pošalji" styleClass="button_base" style="-fx-graphic: url('@../../resources/images/send24.png')"/>
-                        <Button text="Odustani" styleClass="button_base" style="-fx-graphic: url('@../../resources/images/cancel24.png')"/>
+                        <Button text="Pošalji" onAction="#sendHandymanRequest"
+                                styleClass="button_base" style="-fx-graphic: url('@../../resources/images/send24.png')"/>
+                        <Button text="Nazad" onAction="#cancelHandymanRequest"
+                                styleClass="button_base" style="-fx-graphic: url('@../../resources/images/back24.png')"/>
                     </HBox>
                 </VBox>
             </GridPane>

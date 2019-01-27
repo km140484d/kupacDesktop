@@ -1,5 +1,6 @@
 package controllers.menu;
 
+import controllers.customer.CustomerSearchController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -22,7 +23,9 @@ public class CustomerMenuController extends MenuController {
     private Button custMenuLogout;
 
     public void switchToSearch(MouseEvent mouseEvent) throws IOException {
-        BorderPane root = FXMLLoader.load(getClass().getResource(customerPageURL + "customer_handymen_search.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(customerPageURL + "customer_handymen_search.fxml"));
+        BorderPane root = fxmlLoader.load();
+        ((CustomerSearchController)fxmlLoader.getController()).setRoot(root);
         stage.setTitle("Pretraga majstora");
         scene.setRoot(root);
     }

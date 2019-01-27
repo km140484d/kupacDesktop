@@ -7,6 +7,7 @@ import controllers.menu.CustomerMenuController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -26,6 +27,8 @@ public class CustomerSearchController extends Controller implements Initializabl
     @FXML
     private VBox customerSearchResults;
 
+    private Parent root;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         customerMenuController.emphasizeMenuItemSelected(customerMenuController.getCustMenuSearch());
@@ -43,4 +46,15 @@ public class CustomerSearchController extends Controller implements Initializabl
         }
     }
 
+    public void setSavedSearchScene(){
+        scene.setRoot(root);
+    }
+
+    public Parent getRoot() {
+        return root;
+    }
+
+    public void setRoot(Parent root) {
+        this.root = root;
+    }
 }

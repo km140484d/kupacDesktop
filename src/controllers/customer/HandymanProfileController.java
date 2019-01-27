@@ -50,6 +50,8 @@ public class HandymanProfileController extends Controller implements Initializab
 
     private Handyman handyman;
 
+    private Parent root;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         customerMenuController.emphasizeMenuItemSelected(customerMenuController.getCustMenuSearch());
@@ -60,6 +62,10 @@ public class HandymanProfileController extends Controller implements Initializab
         Parent root = fxmlLoader.load();
         ((MailRequestController)fxmlLoader.getController()).setProfileController(this);
         scene.setRoot(root);
+    }
+
+    public void backToSearch(ActionEvent actionEvent) {
+        resultController.getSearchController().setSavedSearchScene();
     }
 
     public class TableJob{
@@ -116,7 +122,7 @@ public class HandymanProfileController extends Controller implements Initializab
         handymanName.setText(handyman.getName() + " " + handyman.getSurname());
         handymanEmail.setText(handyman.getEmail());
         handymanPhone.setText(handyman.getPhone());
-        handyman.getSkills().stream().forEach(s -> {
+        handyman.getSkills().forEach(s -> {
             if (handymanSpecialSkills.getText().isEmpty())
                 handymanSpecialSkills.setText(s.getDescription());
             else
@@ -153,5 +159,17 @@ public class HandymanProfileController extends Controller implements Initializab
         };
         handymanRatingColumn.setCellFactory(cellFactory);
         handymanTableJobs.setItems(FXCollections.observableArrayList(tableJobs));
+    }
+
+    public Parent getRoot() {
+        return root;
+    }
+
+    public void setRoot(Parent root) {
+        this.root = root;
+    }
+
+    public void setHandymanProfileScene(){
+        scene.setRoot(root);
     }
 }
