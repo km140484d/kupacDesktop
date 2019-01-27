@@ -57,7 +57,7 @@
                         <Label text="Validnost:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
                         <Label text="Verifikacioni kod:" wrapText="true" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                         <TextField fx:id="editCardNumber" maxWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-                        <TextField fx:id="editCardValid" maxWidth="50" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <DatePicker fx:id="editCardValid" maxWidth="50" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
                         <TextField fx:id="editCardCode" maxWidth="50" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
                     </GridPane>
                 </VBox>

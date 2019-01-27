@@ -57,7 +57,7 @@
                         <Label text="Validnost:" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
                         <Label text="Verifikacioni kod:" wrapText="true" styleClass="label_field" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
                         <TextField fx:id="regCardNumber" maxWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-                        <TextField fx:id="regCardValid" maxWidth="50" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <DatePicker fx:id="regCardValid" maxWidth="50" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
                         <TextField fx:id="regCardCode" maxWidth="50" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
                     </GridPane>
                 </VBox>
@@ -77,8 +77,10 @@
                     <Label text="Komentar" styleClass="subtitle" style="-fx-font-size: 14;"/>
                     <TextArea fx:id="regComment" maxWidth="200" maxHeight="80"/>
                     <HBox spacing="10" alignment="CENTER">
-                        <Button text="Sacuvaj" styleClass="button_base" style="-fx-graphic: url('@../../resources/images/save24.png')"/>
-                        <Button text="Odustani" styleClass="button_base" style="-fx-graphic: url('@../../resources/images/cancel24.png')"/>
+                        <Button fx:id="regSave" text="Sacuvaj" onAction="#saveCustomerInfo"
+                                styleClass="button_base" style="-fx-graphic: url('@../../resources/images/save24.png')"/>
+                        <Button fx:id="regCancel" text="Odustani" onAction="#cancelCustomerInfo"
+                                styleClass="button_base" style="-fx-graphic: url('@../../resources/images/cancel24.png')"/>
                     </HBox>
                 </VBox>
             </GridPane>

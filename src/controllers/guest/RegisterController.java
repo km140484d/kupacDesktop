@@ -1,18 +1,26 @@
 package controllers.guest;
 
+import beans.Customer;
+import beans.DB;
 import controllers.Controller;
 import controllers.menu.MainMenuController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RegisterController extends Controller implements Initializable {
+
+    private static final String guestPageURL = "../../pages/guest/";
 
     @FXML
     private MainMenuController menuController;
@@ -33,7 +41,7 @@ public class RegisterController extends Controller implements Initializable {
     @FXML
     private TextField regCardNumber;
     @FXML
-    private TextField regCardValid;
+    private DatePicker regCardValid;
     @FXML
     private TextField regCardCode;
 
@@ -52,6 +60,7 @@ public class RegisterController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         menuController.emphasizeMenuItemSelected(menuController.getRegButton());
+        disableCreditCardInfo(true);
     }
 
     public void disableCreditCardInfo(boolean disable){
@@ -62,5 +71,26 @@ public class RegisterController extends Controller implements Initializable {
 
     public void creditCardAction(ActionEvent actionEvent) {
         disableCreditCardInfo(!regPayCheck.isSelected());
+    }
+
+    public void saveCustomerInfo(ActionEvent actionEvent) throws IOException {
+        Customer customer = new Customer(regName.getText(), regSurname.getText(), regPhone.getText(), regEmail.getText(),
+                regUsername.getText(), regPassword.getText(), regComment.getText());
+        if (regPayCheck.isSelected())
+            customer.setCreditCard(
+                    customer.new CreditCard(regCardNumber.getText(),
+                            regCardValid.getValue(), regCardCode.getText(), 0));
+        DB.getDBInstance().addCustomer(customer);
+        login();
+    }
+
+    public void login() throws IOException {
+        BorderPane root = FXMLLoader.load(getClass().getResource(guestPageURL + "login.fxml"));
+        stage.setTitle("Prijava");
+        scene.setRoot(root);
+    }
+
+    public void cancelCustomerInfo(ActionEvent actionEvent) throws IOException {
+        login();
     }
 }

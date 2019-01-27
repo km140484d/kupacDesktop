@@ -19,7 +19,8 @@
             <HBox spacing="10" alignment="CENTER">
                 <Button text="Prijava" onAction="#login"
                         styleClass="button_base" style="-fx-graphic: url('@../../resources/images/login.png')"/>
-                <Button text="Registracija" styleClass="button_base" style="-fx-graphic: url('@../../resources/images/register.png')"/>
+                <Button text="Registracija" onAction="#registration"
+                        styleClass="button_base" style="-fx-graphic: url('@../../resources/images/register.png')"/>
             </HBox>
         </VBox>
     </center>
