@@ -10,14 +10,19 @@
       styleClass="panel" style="-fx-padding: 10" maxWidth="Infinity">
     <GridPane hgap="30">
         <columnConstraints>
-            <ColumnConstraints minWidth="100" percentWidth="25"/>
+            <ColumnConstraints minWidth="100" percentWidth="25" maxWidth="100"/>
             <ColumnConstraints minWidth="100" percentWidth="25"/>
             <ColumnConstraints minWidth="100" percentWidth="25"/>
             <ColumnConstraints minWidth="100" percentWidth="25"/>
         </columnConstraints>
-        <ImageView fx:id="userImageView" GridPane.rowIndex="0" GridPane.columnIndex="0" fitHeight="100.0" fitWidth="100.0">
-            <Image url="@../../resources/images/person_holder.gif"/>
-        </ImageView>
+        <AnchorPane>
+            <ImageView fx:id="userImageView" GridPane.rowIndex="0" GridPane.columnIndex="0" fitHeight="100.0" fitWidth="100.0">
+                <Image url="@../../resources/images/person_holder.gif"/>
+            </ImageView>
+            <Button onAction="#addHandymanToFavorites" styleClass="button_base" AnchorPane.bottomAnchor="5" AnchorPane.rightAnchor="5"
+                    style="-fx-graphic: url('@../../resources/images/heart24.png'); -fx-background-radius: 15px;
+                    -fx-min-width: 30px; -fx-min-height: 30px; -fx-max-width: 30px; -fx-max-height: 30px;"/>
+        </AnchorPane>
         <VBox GridPane.rowIndex="0" GridPane.columnIndex="1" spacing="20" maxWidth="Infinity" alignment="CENTER">
             <Label fx:id="customerSearchResultHandyman" text="Ime i prezime majstora" wrapText="true"
                    styleClass="label_field" style="-fx-font-weight: bold;"/>

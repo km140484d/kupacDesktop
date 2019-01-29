@@ -79,7 +79,7 @@ public class DB {
         handymen.add(currentHandyman);
 
         currentHandyman = new Handyman("Dane", "Nikolić", "0645556667", "dane@gmail.com",
-                skills.subList(1,2));
+                skills.subList(2,3));
         jobs = new ArrayList<>();
         jobs.add(currentHandyman.new Job(occupations.get(1), 1500.00, 6,4));
         jobs.add(currentHandyman.new Job(occupations.get(2), 2100.00, 12,5));

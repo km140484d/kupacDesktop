@@ -66,4 +66,7 @@ public class HandymanResultController extends Controller {
     public void setSearchController(CustomerSearchController searchController) {
         this.searchController = searchController;
     }
+
+    public void addHandymanToFavorites(ActionEvent actionEvent) {
+    }
 }
