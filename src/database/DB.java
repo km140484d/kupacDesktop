@@ -94,6 +94,14 @@ public class DB {
         currentHandyman.setJobs(jobs);
         handymen.add(currentHandyman);
 
+        currentHandyman = new Handyman("Dragana", "Tanic", "0649988665", "dragce@gmail.com",
+                skills.subList(1,3));
+        jobs = new ArrayList<>();
+        jobs.add(currentHandyman.new Job(occupations.get(1), 1950.00, 4,4));
+        jobs.add(currentHandyman.new Job(occupations.get(3), 2300.00, 5,5));
+        currentHandyman.setJobs(jobs);
+        handymen.add(currentHandyman);
+
         currentHandyman = null;
     }
 

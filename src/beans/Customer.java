@@ -83,6 +83,7 @@ public class Customer extends User{
     private Account account;
     private String comment;
     private List<Request> requests = new ArrayList<>();
+    private List<Handyman> favoriteHandymen = new ArrayList<>();
 
     public Customer(String name, String surname, String phone, String email,
                     String username, String password, String comment){
@@ -121,5 +122,13 @@ public class Customer extends User{
 
     public List<Request> getRequests() {
         return requests;
+    }
+
+    public List<Handyman> getFavoriteHandymen() {
+        return favoriteHandymen;
+    }
+
+    public void addFavoriteHandyman(Handyman handyman){
+        favoriteHandymen.add(handyman);
     }
 }

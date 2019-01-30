@@ -1,10 +1,16 @@
 package controllers.customer;
 
-import controllers.*;
-import controllers.menu.*;
-import javafx.fxml.*;
+import beans.Handyman;
+import controllers.Controller;
+import controllers.menu.CustomerMenuController;
+import database.DB;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Pagination;
-import javafx.scene.layout.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,34 +37,24 @@ public class CustomerFavoritesController extends Controller implements Initializ
     @FXML
     private VBox favoriteHandymen;
 
-
     @FXML
     private Pagination handymenPagination;
     @FXML
     private GridPane handymenGrid;
     @FXML
-    private HBox firstHandyman;
+    private VBox firstHandyman;
     @FXML
-    private FavoriteHandymanController firstHandymanController;
+    private VBox secondHandyman;
     @FXML
-    private HBox secondHandyman;
+    private VBox thirdHandyman;
     @FXML
-    private FavoriteHandymanController secondHandymanController;
-    @FXML
-    private HBox thirdHandyman;
-    @FXML
-    private FavoriteHandymanController thirdHandymanController;
-    @FXML
-    private HBox fourthHandyman;
-    @FXML
-    private FavoriteHandymanController fourthHandymanController;
+    private VBox fourthHandyman;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         customerMenuController.emphasizeMenuItemSelected(customerMenuController.getCustMenuFavorites());
         try {
-            handymenPagination.setPageCount(handymen.size()/4);
-//            handymenPagination.setMaxPageIndicatorCount(handymen.size()/4);
+            handymenPagination.setPageCount((DB.getDBInstance().getCurrentCustomer().getFavoriteHandymen().size()-1)/4+1);
             handymenPagination.setPageFactory((Integer pageIndex) ->  createPage(pageIndex));
         } catch (Exception e) {
             e.printStackTrace();
@@ -68,14 +64,30 @@ public class CustomerFavoritesController extends Controller implements Initializ
     private GridPane createPage(Integer pageIndex){
         int page = pageIndex * ROWS * COLUMNS;
         try {
-            firstHandyman = FXMLLoader.load(getClass().getResource(pageURL + "favorite_handyman.fxml"));
-            firstHandymanController.getHandymanName().setText(handymen.get(page) + "");
-            secondHandyman = FXMLLoader.load(getClass().getResource(pageURL + "favorite_handyman.fxml"));
-            secondHandymanController.getHandymanName().setText(handymen.get(page + 1) + "");
-            thirdHandyman = FXMLLoader.load(getClass().getResource(pageURL + "favorite_handyman.fxml"));
-            thirdHandymanController.getHandymanName().setText(handymen.get(page + 2) + "");
-            fourthHandyman = FXMLLoader.load(getClass().getResource(pageURL + "favorite_handyman.fxml"));
-            fourthHandymanController.getHandymanName().setText(handymen.get(page + 3) + "");
+            firstHandyman.getChildren().clear();
+            secondHandyman.getChildren().clear();
+            thirdHandyman.getChildren().clear();
+            fourthHandyman.getChildren().clear();
+            List<Handyman> handymen = DB.getCurrentCustomer().getFavoriteHandymen();
+            for(int i=page; i < page + ROWS*COLUMNS && i < handymen.size(); i++){
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(pageURL + "favorite_handyman.fxml"));
+                Parent favorite = fxmlLoader.load();
+                ((FavoriteHandymanController)fxmlLoader.getController()).setHandyman(handymen.get(i));
+                switch (i - page){
+                    case 0:
+                        firstHandyman.getChildren().add(favorite);
+                        break;
+                    case 1:
+                        secondHandyman.getChildren().add(favorite);
+                        break;
+                    case 2:
+                        thirdHandyman.getChildren().add(favorite);
+                        break;
+                    case 3:
+                        fourthHandyman.getChildren().add(favorite);
+                        break;
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

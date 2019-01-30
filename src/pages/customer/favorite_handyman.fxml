@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.*?>
 <?import components.BorderTitlePanel?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
 <HBox xmlns:fx="http://www.w3.org/1999/XSL/Transform" stylesheets="@../../resources/css/base"
       fx:controller="controllers.customer.FavoriteHandymanController" spacing="10" styleClass="panel" maxWidth="Infinity"
       onMouseClicked="#requestAction" alignment="CENTER">
@@ -15,11 +16,11 @@
             <Label fx:id="handymanName" text="Mile Miletić"
                    style="-fx-text-fill: #990000; -fx-font-size: 14; -fx-font-weight: bold; -fx-padding: 5;"/>
             <HBox spacing="3" alignment="CENTER">
-                <Button fx:id="facebook" onAction="#shareFacebook"
+                <Button onAction="#shareFacebook"
                         style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/facebook24.png');" />
-                <Button fx:id="instagram" onAction="#shareInstagram"
+                <Button onAction="#shareInstagram"
                         style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/instagram24.png');"/>
-                <Button fx:id="twitter" onAction="#shareTwitter"
+                <Button onAction="#shareTwitter"
                         style="-fx-background-color: #191970; -fx-graphic: url('@../../resources/images/twitter24.png');"/>
             </HBox>
         </VBox>

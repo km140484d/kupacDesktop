@@ -2,17 +2,22 @@ package controllers.customer;
 
 import beans.Handyman;
 import controllers.Controller;
+import database.DB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import org.controlsfx.control.Rating;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class HandymanResultController extends Controller {
+public class HandymanResultController extends Controller implements Initializable{
 
     private static final String customerPageURL = "../../pages/customer/";
 
@@ -22,6 +27,8 @@ public class HandymanResultController extends Controller {
     private Label customerSearchResultJob;
     @FXML
     private Rating customerSearchResultRating;
+    @FXML
+    private Button favoriteHandymanButton;
 
     private CustomerSearchController searchController;
 
@@ -57,6 +64,8 @@ public class HandymanResultController extends Controller {
             averageRating += job.getRating();
         }
         customerSearchResultRating.setRating(averageRating/jobs.size());
+        if (DB.getCurrentCustomer().getFavoriteHandymen().contains(handyman))
+            favoriteHandymanButton.setVisible(false);
     }
 
     public CustomerSearchController getSearchController() {
@@ -68,5 +77,12 @@ public class HandymanResultController extends Controller {
     }
 
     public void addHandymanToFavorites(ActionEvent actionEvent) {
+        DB.getDBInstance().getCurrentCustomer().addFavoriteHandyman(handyman);
+        favoriteHandymanButton.setVisible(false);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        favoriteHandymanButton.managedProperty().bind(favoriteHandymanButton.visibleProperty());
     }
 }
